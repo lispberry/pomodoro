@@ -32,7 +32,7 @@ namespace Collective_Development.forms
             }
             label1.ForeColor = label7.ForeColor = ThemeColor.SecondaryColor;
 
-            label2.ForeColor = label3.ForeColor = label4.ForeColor= label5.ForeColor = label6.ForeColor = ThemeColor.PrimaryColor;
+            label2.ForeColor = label3.ForeColor = label4.ForeColor= label5.ForeColor = label6.ForeColor =label12.ForeColor = ThemeColor.PrimaryColor;
         }
     }
 }

@@ -59,7 +59,7 @@ namespace Collective_Development
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(223, 542);
+            this.panelMenu.Size = new System.Drawing.Size(223, 493);
             this.panelMenu.TabIndex = 0;
             // 
             // btnSettings
@@ -138,7 +138,7 @@ namespace Collective_Development
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblUserName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserName.Location = new System.Drawing.Point(89, 17);
+            this.lblUserName.Location = new System.Drawing.Point(90, 23);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(85, 16);
             this.lblUserName.TabIndex = 1;
@@ -244,14 +244,14 @@ namespace Collective_Development
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(223, 63);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(641, 479);
+            this.panelDesktop.Size = new System.Drawing.Size(641, 430);
             this.panelDesktop.TabIndex = 2;
             // 
             // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 542);
+            this.ClientSize = new System.Drawing.Size(864, 493);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);

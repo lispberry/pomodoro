@@ -31,8 +31,7 @@ namespace Collective_Development.forms
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
-            label1.ForeColor = ThemeColor.SecondaryColor;
-            label2.ForeColor = ThemeColor.PrimaryColor;
+            
         }
     }
 }
