@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Collective_Development.forms
 {
-    public partial class FormPage1 : Form
+    public partial class formSettings : Form
     {
-        public FormPage1()
+        public formSettings()
         {
             InitializeComponent();
         }

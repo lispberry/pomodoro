@@ -17,7 +17,7 @@ namespace Collective_Development
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMainMenu());
+            Application.Run(new forms.formLogin());
         }
     }
 }

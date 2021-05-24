@@ -1,7 +1,7 @@
 ﻿
 namespace Collective_Development.forms
 {
-    partial class FormPage1
+    partial class formSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -61,15 +61,15 @@ namespace Collective_Development.forms
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
-            // FormPage1
+            // formSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(625, 359);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "FormPage1";
+            this.Name = "formSettings";
             this.Text = "FormPage1";
             this.Load += new System.EventHandler(this.FormPage1_Load);
             this.ResumeLayout(false);

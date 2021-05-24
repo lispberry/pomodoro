@@ -30,9 +30,9 @@ namespace Collective_Development
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnPage3 = new System.Windows.Forms.Button();
-            this.btnPage2 = new System.Windows.Forms.Button();
-            this.btnPage1 = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnUserData = new System.Windows.Forms.Button();
+            this.btnStatistics = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
@@ -52,73 +52,75 @@ namespace Collective_Development
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.btnPage3);
-            this.panelMenu.Controls.Add(this.btnPage2);
-            this.panelMenu.Controls.Add(this.btnPage1);
+            this.panelMenu.Controls.Add(this.btnSettings);
+            this.panelMenu.Controls.Add(this.btnUserData);
+            this.panelMenu.Controls.Add(this.btnStatistics);
             this.panelMenu.Controls.Add(this.panelUser);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 542);
+            this.panelMenu.Size = new System.Drawing.Size(223, 542);
             this.panelMenu.TabIndex = 0;
             // 
-            // btnPage3
+            // btnSettings
             // 
-            this.btnPage3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPage3.FlatAppearance.BorderSize = 0;
-            this.btnPage3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPage3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnPage3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPage3.Location = new System.Drawing.Point(0, 264);
-            this.btnPage3.Name = "btnPage3";
-            this.btnPage3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnPage3.Size = new System.Drawing.Size(220, 60);
-            this.btnPage3.TabIndex = 3;
-            this.btnPage3.Text = "  Page3";
-            this.btnPage3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPage3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPage3.UseVisualStyleBackColor = true;
-            this.btnPage3.Click += new System.EventHandler(this.btnPage3_Click);
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSettings.Image = global::Collective_Development.Properties.Resources.settings;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(0, 182);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(223, 60);
+            this.btnSettings.TabIndex = 3;
+            this.btnSettings.Text = "  Настройки приложения";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // btnPage2
+            // btnUserData
             // 
-            this.btnPage2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPage2.FlatAppearance.BorderSize = 0;
-            this.btnPage2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPage2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnPage2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPage2.Location = new System.Drawing.Point(0, 204);
-            this.btnPage2.Name = "btnPage2";
-            this.btnPage2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnPage2.Size = new System.Drawing.Size(220, 60);
-            this.btnPage2.TabIndex = 2;
-            this.btnPage2.Text = "  Page2";
-            this.btnPage2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPage2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPage2.UseVisualStyleBackColor = true;
-            this.btnPage2.Click += new System.EventHandler(this.btnPage2_Click);
+            this.btnUserData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserData.FlatAppearance.BorderSize = 0;
+            this.btnUserData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnUserData.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUserData.Image = global::Collective_Development.Properties.Resources.Windows_Messenger_icon;
+            this.btnUserData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserData.Location = new System.Drawing.Point(0, 122);
+            this.btnUserData.Name = "btnUserData";
+            this.btnUserData.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnUserData.Size = new System.Drawing.Size(223, 60);
+            this.btnUserData.TabIndex = 2;
+            this.btnUserData.Text = "  Данные о пользователе";
+            this.btnUserData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUserData.UseVisualStyleBackColor = true;
+            this.btnUserData.Click += new System.EventHandler(this.btnUserData_Click);
             // 
-            // btnPage1
+            // btnStatistics
             // 
-            this.btnPage1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPage1.FlatAppearance.BorderSize = 0;
-            this.btnPage1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPage1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnPage1.Image = global::Collective_Development.Properties.Resources.settings;
-            this.btnPage1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPage1.Location = new System.Drawing.Point(0, 144);
-            this.btnPage1.Name = "btnPage1";
-            this.btnPage1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnPage1.Size = new System.Drawing.Size(220, 60);
-            this.btnPage1.TabIndex = 1;
-            this.btnPage1.Text = "  Page1";
-            this.btnPage1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPage1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPage1.UseVisualStyleBackColor = true;
-            this.btnPage1.Click += new System.EventHandler(this.btnPage1_Click);
+            this.btnStatistics.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStatistics.FlatAppearance.BorderSize = 0;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStatistics.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnStatistics.Image = global::Collective_Development.Properties.Resources.diagram;
+            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Location = new System.Drawing.Point(0, 62);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnStatistics.Size = new System.Drawing.Size(223, 60);
+            this.btnStatistics.TabIndex = 1;
+            this.btnStatistics.Text = "  Статистика";
+            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // panelUser
             // 
@@ -128,7 +130,7 @@ namespace Collective_Development
             this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUser.Location = new System.Drawing.Point(0, 0);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(220, 144);
+            this.panelUser.Size = new System.Drawing.Size(223, 62);
             this.panelUser.TabIndex = 0;
             // 
             // lblUserName
@@ -136,7 +138,7 @@ namespace Collective_Development
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblUserName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserName.Location = new System.Drawing.Point(61, 99);
+            this.lblUserName.Location = new System.Drawing.Point(89, 17);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(85, 16);
             this.lblUserName.TabIndex = 1;
@@ -145,7 +147,7 @@ namespace Collective_Development
             // pictureBoxUser
             // 
             this.pictureBoxUser.Image = global::Collective_Development.Properties.Resources.user_picture;
-            this.pictureBoxUser.Location = new System.Drawing.Point(74, 23);
+            this.pictureBoxUser.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(63, 63);
             this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,9 +163,9 @@ namespace Collective_Development
             this.panelTitleBar.Controls.Add(this.btnCloseChildForm);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
+            this.panelTitleBar.Location = new System.Drawing.Point(223, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(644, 144);
+            this.panelTitleBar.Size = new System.Drawing.Size(641, 63);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -174,7 +176,7 @@ namespace Collective_Development
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(569, -6);
+            this.btnMinimize.Location = new System.Drawing.Point(566, -6);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(27, 31);
             this.btnMinimize.TabIndex = 4;
@@ -189,7 +191,7 @@ namespace Collective_Development
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.Location = new System.Drawing.Point(593, -6);
+            this.btnMaximize.Location = new System.Drawing.Point(590, -6);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(27, 31);
             this.btnMaximize.TabIndex = 3;
@@ -204,7 +206,7 @@ namespace Collective_Development
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(617, -6);
+            this.btnClose.Location = new System.Drawing.Point(614, -6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(27, 31);
             this.btnClose.TabIndex = 2;
@@ -220,7 +222,7 @@ namespace Collective_Development
             this.btnCloseChildForm.Image = global::Collective_Development.Properties.Resources.cross_out;
             this.btnCloseChildForm.Location = new System.Drawing.Point(0, 0);
             this.btnCloseChildForm.Name = "btnCloseChildForm";
-            this.btnCloseChildForm.Size = new System.Drawing.Size(75, 144);
+            this.btnCloseChildForm.Size = new System.Drawing.Size(75, 63);
             this.btnCloseChildForm.TabIndex = 1;
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
             this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
@@ -231,7 +233,7 @@ namespace Collective_Development
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(267, 47);
+            this.lblTitle.Location = new System.Drawing.Point(263, 17);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(82, 30);
             this.lblTitle.TabIndex = 0;
@@ -240,9 +242,9 @@ namespace Collective_Development
             // panelDesktop
             // 
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(220, 144);
+            this.panelDesktop.Location = new System.Drawing.Point(223, 63);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(644, 398);
+            this.panelDesktop.Size = new System.Drawing.Size(641, 479);
             this.panelDesktop.TabIndex = 2;
             // 
             // FormMainMenu
@@ -268,9 +270,9 @@ namespace Collective_Development
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnPage3;
-        private System.Windows.Forms.Button btnPage2;
-        private System.Windows.Forms.Button btnPage1;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnUserData;
+        private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Label lblTitle;

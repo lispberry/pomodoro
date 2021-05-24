@@ -18,7 +18,7 @@ namespace Collective_Development
         private int tempIndex;
         private Form activeForm;
         public FormMainMenu()
-        {
+        {    
             InitializeComponent();
             random = new Random();
             btnCloseChildForm.Visible = false;
@@ -98,20 +98,6 @@ namespace Collective_Development
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
-        private void btnPage1_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new forms.FormPage1(), sender);
-        }
-
-        private void btnPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPage3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
         {
@@ -140,6 +126,21 @@ namespace Collective_Development
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new forms.formSettings(), sender);
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new forms.formStatistics(), sender);
+        }
+
+        private void btnUserData_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new forms.formUserData(), sender);
         }
     }
 }
