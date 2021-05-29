@@ -73,6 +73,16 @@ namespace Collective_Development.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Button_Close_icon {
+            get {
+                object obj = ResourceManager.GetObject("Button-Close-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cross_out {
             get {
                 object obj = ResourceManager.GetObject("cross-out", resourceCulture);
@@ -86,6 +96,36 @@ namespace Collective_Development.Properties {
         internal static System.Drawing.Bitmap diagram {
             get {
                 object obj = ResourceManager.GetObject("diagram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_icon {
+            get {
+                object obj = ResourceManager.GetObject("minimize-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("minimize-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("minimize-icon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

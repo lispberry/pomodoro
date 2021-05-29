@@ -13,6 +13,8 @@ namespace Collective_Development.forms
         public formSettings()
         {
             InitializeComponent();
+            //брать значение всех настроек из бд
+            tbDefaulWorkTime.Text = "40";
         }
        
         private void FormPage1_Load(object sender, EventArgs e)
@@ -32,6 +34,11 @@ namespace Collective_Development.forms
                 }
             }
             
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            //заносить значения настроек в бд
         }
     }
 }
