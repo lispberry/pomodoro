@@ -29,7 +29,7 @@ namespace Collective_Development.forms
         {
             LoadTheme();
         }
-        private void LoadTheme()
+        public void LoadTheme()
         {
             foreach (Control btns in this.Controls)
             {
@@ -41,7 +41,7 @@ namespace Collective_Development.forms
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
-
+            ReleasePanels();
         }
         private void btnAddCard_Click(object sender, EventArgs e)
         {

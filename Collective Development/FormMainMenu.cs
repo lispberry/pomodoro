@@ -16,7 +16,6 @@ namespace Collective_Development
         private Button currentButton;
         private Random random;
         private int tempIndex;
-        private Form activeForm;
         private forms.formMainPage formMainPage = new forms.formMainPage();
         private forms.formUserData formUserData = new forms.formUserData();
         private forms.formStatistics formStatistics = new forms.formStatistics();
@@ -63,7 +62,6 @@ namespace Collective_Development
                     panelUser.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-         
                 }
             }
         }
@@ -107,18 +105,26 @@ namespace Collective_Development
         }
         private void btnMainPage_Click(object sender, EventArgs e)
         {
+            ActivateButton(sender);
+            formMainPage.LoadTheme();
             OpenChildForm(formMainPage, sender);
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            ActivateButton(sender);
+            formSettings.LoadTheme();
             OpenChildForm(formSettings, sender);
         }
         private void btnStatistics_Click(object sender, EventArgs e)
         {
+            ActivateButton(sender);
+            formStatistics.LoadTheme();
             OpenChildForm(formStatistics, sender);
         }
         private void btnUserData_Click(object sender, EventArgs e)
         {
+            ActivateButton(sender);
+            formUserData.LoadTheme();
             OpenChildForm(formUserData, sender);
         }
     }

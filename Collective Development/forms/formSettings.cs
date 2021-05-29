@@ -21,7 +21,7 @@ namespace Collective_Development.forms
         {
             LoadTheme();
         }
-        private void LoadTheme()
+        public void LoadTheme()
         {
             foreach (Control btns in this.Controls)
             {
