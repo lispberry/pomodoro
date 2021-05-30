@@ -15,9 +15,8 @@ namespace Collective_Development.forms
         {
             InitializeComponent();
             taskBoards = new List<TaskBoard>();
-            taskBoards.Add(new TaskBoard(15, "Большой перерыв"));
-            taskBoards.Add(new TaskBoard(5, "Маленький перерыв"));
-            taskBoards.Add(new TaskBoard(40, "Работа"));
+            taskBoards.Add(new TaskBoard(15, "Большой перерыв", false));
+            taskBoards.Add(new TaskBoard(40, "Работа", false));
 
             for (int i = 0; i < taskBoards.Count; i++)
             {
@@ -53,7 +52,7 @@ namespace Collective_Development.forms
             else
             {
                 //40 - значение из настроек. Брать из бд
-                taskBoards.Add(new TaskBoard(40, "Выполняемая задача"));
+                taskBoards.Add(new TaskBoard(40, "Выполняемая задача", true));
                 taskBoards[taskBoards.Count - 1].ClickOnPanel = ReleasePanels;
                 Controls.Add(taskBoards[taskBoards.Count - 1].taskPanel);
             }
@@ -71,8 +70,12 @@ namespace Collective_Development.forms
             for (int i = 0; i < taskBoards.Count; i++)
                 if (taskBoards[i].taskPanel.BackColor != SystemColors.Control)
                 {
-                    Controls.Remove(taskBoards[i].taskPanel);
-                    taskBoards.RemoveAt(i);
+                    if (taskBoards[i].allowDel)
+                    {
+                        Controls.Remove(taskBoards[i].taskPanel);
+                        taskBoards.RemoveAt(i);
+                    }
+                    else MessageBox.Show("Вы не можете удалять стандартные карточки");
                     return;
                 }
             MessageBox.Show("Выберите карточку для удаления");

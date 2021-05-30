@@ -13,7 +13,8 @@ namespace Collective_Development
         public Button btnStart, btnStop;
         public TextBox tbBoardName, tbTimerText;
         private int current_min, current_sec, default_min;
-        public TaskBoard(int m, string name)
+        public bool allowDel;
+        public TaskBoard(int m, string name, bool allowDel)
         {
             taskPanel = new Panel();
             taskPanel.Dock = DockStyle.Top;
@@ -36,6 +37,7 @@ namespace Collective_Development
             tbTimerText.BorderStyle = BorderStyle.None;
             tbTimerText.Size = new System.Drawing.Size(82, 31);
             tbTimerText.Location = new System.Drawing.Point(240, 14);
+            tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged);
 
             btnStart = new Button();
             btnStart.Text = "Пуск";
@@ -62,6 +64,20 @@ namespace Collective_Development
 
             default_min = current_min = m;
             current_sec = 0;
+            this.allowDel = allowDel;
+        }
+        void tbTimerText_TextChanged(object sender, EventArgs e)
+        {
+            //int new_min, new_sec;
+            //if (tbTimerText.Text.Contains(':') &&
+            //    Int32.TryParse(tbTimerText.Text.Substring(0, tbTimerText.Text.IndexOf(':')), out new_min) &&
+            //        Int32.TryParse(tbTimerText.Text.Substring(2, tbTimerText.Text.IndexOf(':') + 1), out new_sec))
+            //{
+            //    current_min = new_min;
+            //    current_sec = new_sec;
+            //}
+            //else
+            //    MessageBox.Show("Введите корректные данные!");
         }
         void btnStart_Click(object sender, EventArgs e)
         {
@@ -85,7 +101,7 @@ namespace Collective_Development
             current_min = default_min;
             current_sec = 0;
         }
-            private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
             current_sec = current_sec - 1;
             if (current_sec == -1)
