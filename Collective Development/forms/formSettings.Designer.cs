@@ -93,7 +93,7 @@ namespace Collective_Development.forms
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Name = "formSettings";
-            this.Text = "formSettings";
+            this.Text = "Настройки";
             this.Load += new System.EventHandler(this.FormPage1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

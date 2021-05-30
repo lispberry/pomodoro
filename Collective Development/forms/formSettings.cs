@@ -35,7 +35,6 @@ namespace Collective_Development.forms
             }
             
         }
-
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             //заносить значения настроек в бд

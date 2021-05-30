@@ -31,6 +31,7 @@ namespace Collective_Development.forms
         {
             this.btnAddCard = new System.Windows.Forms.Button();
             this.btnDeleteCard = new System.Windows.Forms.Button();
+            this.btnSaveCards = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddCard
@@ -53,15 +54,26 @@ namespace Collective_Development.forms
             this.btnDeleteCard.UseVisualStyleBackColor = true;
             this.btnDeleteCard.Click += new System.EventHandler(this.btnDeleteCard_Click);
             // 
+            // btnSaveCards
+            // 
+            this.btnSaveCards.Location = new System.Drawing.Point(130, 381);
+            this.btnSaveCards.Name = "btnSaveCards";
+            this.btnSaveCards.Size = new System.Drawing.Size(137, 27);
+            this.btnSaveCards.TabIndex = 3;
+            this.btnSaveCards.Text = "Сохранить";
+            this.btnSaveCards.UseVisualStyleBackColor = true;
+            this.btnSaveCards.Click += new System.EventHandler(this.btnSaveCards_Click);
+            // 
             // formMainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 411);
+            this.Controls.Add(this.btnSaveCards);
             this.Controls.Add(this.btnDeleteCard);
             this.Controls.Add(this.btnAddCard);
             this.Name = "formMainPage";
-            this.Text = "formMainPage";
+            this.Text = "Ваши карточки";
             this.Load += new System.EventHandler(this.formMainPage_Load);
             this.ResumeLayout(false);
 
@@ -71,5 +83,6 @@ namespace Collective_Development.forms
 
         private System.Windows.Forms.Button btnAddCard;
         private System.Windows.Forms.Button btnDeleteCard;
+        private System.Windows.Forms.Button btnSaveCards;
     }
 }

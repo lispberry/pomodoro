@@ -27,5 +27,10 @@ namespace Collective_Development.forms
                 }
             }
         }
+
+        private void formStatistics_Load(object sender, EventArgs e)
+        {
+            LoadTheme();
+        }
     }
 }

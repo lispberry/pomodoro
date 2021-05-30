@@ -37,7 +37,8 @@ namespace Collective_Development.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 359);
             this.Name = "formStatistics";
-            this.Text = "formStatistics";
+            this.Text = "Статистика работы";
+            this.Load += new System.EventHandler(this.formStatistics_Load);
             this.ResumeLayout(false);
 
         }

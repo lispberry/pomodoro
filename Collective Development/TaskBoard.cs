@@ -12,9 +12,10 @@ namespace Collective_Development
         private Timer timer;
         public Button btnStart, btnStop;
         public TextBox tbBoardName, tbTimerText;
-        private int current_min, current_sec, default_min;
-        public bool allowDel;
-        public TaskBoard(int m, string name, bool allowDel)
+        public int current_min, current_sec, default_min, default_sec;
+        public bool readOnly;
+        private forms.formMainPage parentForm;
+        public TaskBoard(int m, int s, string name, bool readOnly, forms.formMainPage parentForm)
         {
             taskPanel = new Panel();
             taskPanel.Dock = DockStyle.Top;
@@ -29,14 +30,16 @@ namespace Collective_Development
             tbBoardName.BorderStyle = BorderStyle.Fixed3D;
             tbBoardName.Size = new System.Drawing.Size(190, 19);
             tbBoardName.Location = new System.Drawing.Point(28, 21);
+            tbBoardName.ReadOnly = readOnly;
+            tbBoardName.TextChanged+= new EventHandler(tbBoardName_TextChanged);
 
             tbTimerText = new TextBox();
-            tbTimerText.Text = Convert.ToString(m) + ":00";
+            tbTimerText.Text = Convert.ToString(m) + ":0";
             tbTimerText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             tbTimerText.BackColor = System.Drawing.SystemColors.Control;
             tbTimerText.BorderStyle = BorderStyle.None;
             tbTimerText.Size = new System.Drawing.Size(82, 31);
-            tbTimerText.Location = new System.Drawing.Point(240, 14);
+            tbTimerText.Location = new System.Drawing.Point(255, 14);
             tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged);
 
             btnStart = new Button();
@@ -63,43 +66,49 @@ namespace Collective_Development
             taskPanel.Controls.Add(tbTimerText);
 
             default_min = current_min = m;
-            current_sec = 0;
-            this.allowDel = allowDel;
+            default_sec = current_sec = s;
+            this.readOnly = readOnly;
+            this.parentForm = parentForm;
         }
         void tbTimerText_TextChanged(object sender, EventArgs e)
         {
-            //int new_min, new_sec;
-            //if (tbTimerText.Text.Contains(':') &&
-            //    Int32.TryParse(tbTimerText.Text.Substring(0, tbTimerText.Text.IndexOf(':')), out new_min) &&
-            //        Int32.TryParse(tbTimerText.Text.Substring(2, tbTimerText.Text.IndexOf(':') + 1), out new_sec))
-            //{
-            //    current_min = new_min;
-            //    current_sec = new_sec;
-            //}
-            //else
-            //    MessageBox.Show("Введите корректные данные!");
+            if (tbTimerText.Focused)
+            {
+                btnStart.Enabled = btnStop.Enabled = false;
+                parentForm.ActiveBtnSave();
+            }
         }
-        void btnStart_Click(object sender, EventArgs e)
+        void tbBoardName_TextChanged(object sender, EventArgs e)
+        {
+            btnStart.Enabled = btnStop.Enabled = false;
+            parentForm.ActiveBtnSave();
+        }
+        public void btnStart_Click(object sender, EventArgs e)
         {
             if (!timer.Enabled)
             {
                 timer.Start();
                 btnStart.Text = "Пауза";
-                tbTimerText.ReadOnly = true;
+                //tbTimerText.ReadOnly = true;
+                tbTimerText.Enabled = false;
             }
             else 
             {
                 timer.Stop();
                 btnStart.Text = "Пуск";
-                tbTimerText.ReadOnly = false;
+                //tbTimerText.ReadOnly = false;
+                tbTimerText.Enabled = true;
             }
         }
-        void btnStop_Click(object sender, EventArgs e)
+        private void btnStop_Click(object sender, EventArgs e)
         {
             timer.Stop();
-            tbTimerText.Text = Convert.ToString(default_min) + ":00";
+            tbTimerText.Text = Convert.ToString(default_min) + ":" + Convert.ToString(default_sec);
             current_min = default_min;
-            current_sec = 0;
+            current_sec = default_sec;
+            btnStart.Text = "Пуск";
+            //tbTimerText.ReadOnly = false;
+            tbTimerText.Enabled = true;
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -112,7 +121,18 @@ namespace Collective_Development
             if (current_min == 0 && current_sec == 0)
             {
                 timer.Stop();
-                MessageBox.Show("Время вышло!");
+
+                if (tbBoardName.Text != "Перерыв")
+                {
+                    MessageBox.Show("Время работы вышло. Начинается время отдыха");
+                    parentForm.StartBreak();        
+                }
+                tbTimerText.Text = Convert.ToString(default_min) + ":" + Convert.ToString(default_sec);
+                current_min = default_min;
+                current_sec = default_sec;
+                btnStart.Text = "Пуск";
+                //tbTimerText.ReadOnly = false;
+                tbTimerText.Enabled = true;
             }
             tbTimerText.Text = Convert.ToString(current_min) + ":" + Convert.ToString(current_sec);
         }
@@ -120,7 +140,7 @@ namespace Collective_Development
         private Action TaskPanel_Click;
         private void taskPanel_Click(object sender, EventArgs e)
         {
-            TaskPanel_Click();
+            parentForm.ReleasePanels();
             Panel panel = (Panel)sender;
             panel.BackColor = tbBoardName.BackColor = tbTimerText.BackColor = ThemeColor.SecondaryColor;
             tbBoardName.ForeColor = btnStart.ForeColor = btnStop.ForeColor = tbTimerText.ForeColor = Color.Gainsboro;

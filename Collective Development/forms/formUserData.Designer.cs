@@ -373,7 +373,7 @@ namespace Collective_Development.forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelPersonalData);
             this.Name = "formUserData";
-            this.Text = "formUserData";
+            this.Text = "Ваши данные";
             this.Load += new System.EventHandler(this.formUserData_Load);
             this.panelPersonalData.ResumeLayout(false);
             this.panelPersonalData.PerformLayout();
