@@ -38,7 +38,7 @@ namespace Collective_Development.forms
                 var cmd = new NpgsqlCommand
                 {
                     Connection = conn,
-                    CommandText = "SELECT name, surname, age from \"user\" where login = @login and password = @password"
+                    CommandText = "SELECT name, surname, age, login from \"user\" where login = @login and password = @password"
                 };
                 cmd.Parameters.AddWithValue("login", login);
                 cmd.Parameters.AddWithValue("password", password);
@@ -50,7 +50,8 @@ namespace Collective_Development.forms
                     {
                         Name = (string)reader[0],
                         Surname = (string)reader[1],
-                        Age = (int)reader[2]
+                        Age = (int)reader[2],
+                        Login = (string)reader[3]
                     };
                 }
                 else
@@ -90,7 +91,7 @@ namespace Collective_Development.forms
             if (user != null)
             {
                 //то открываем приложение и вводим все данные из бд
-                new FormMainMenu().Show();
+                new FormMainMenu().Show(user);
                 this.Hide();
             }
             else

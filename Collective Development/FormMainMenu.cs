@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Collective_Development.data;
 
 namespace Collective_Development
 {
@@ -46,6 +47,14 @@ namespace Collective_Development
             string color = ThemeColor.ColorList[index];
             return ColorTranslator.FromHtml(color);
         }
+
+        public void Show(User user)
+        {
+            lblUserName.Text = user.Login;
+
+            Show();
+        }
+
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
