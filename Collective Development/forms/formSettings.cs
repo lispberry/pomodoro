@@ -12,6 +12,7 @@ namespace Collective_Development.forms
     {
         public int defaultWorkTime;
         public bool soundSignal;
+
         public formSettings()
         {
             InitializeComponent();

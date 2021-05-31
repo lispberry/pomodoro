@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Collective_Development.data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,13 @@ namespace Collective_Development.forms
 {
     public partial class formUserData : Form
     {
+        public void AddUserData(User user)
+        {
+            tbName.Text = user.Name;
+            tbSurname.Text = user.Surname;
+            tbAge.Text = user.Age.ToString();
+        }
+
         public formUserData()
         {
             InitializeComponent();

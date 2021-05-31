@@ -22,6 +22,9 @@ namespace Collective_Development
         private static forms.formSettings formSettings = new forms.formSettings();
         private static forms.formInstruction formInstruction = new forms.formInstruction();
         private static forms.formMainPage formMainPage = new forms.formMainPage(formSettings);
+
+        private User _user;
+        
         public FormMainMenu()
         {    
             InitializeComponent();
@@ -50,7 +53,10 @@ namespace Collective_Development
 
         public void Show(User user)
         {
+            _user = user;
             lblUserName.Text = user.Login;
+            formUserData.AddUserData(user);
+            formMainPage.AddTaskBoards(Card.GetCards(user.Login));
 
             Show();
         }
@@ -99,6 +105,7 @@ namespace Collective_Development
             childForm.Show();
             lblTitle.Text = childForm.Text;
         }
+
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -106,6 +113,9 @@ namespace Collective_Development
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
+            Card.RemoveCards(_user.Login);
+            Card.AddCards(_user.Login, formMainPage.GetCards());
+
             Application.Exit();
         }
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -147,6 +157,10 @@ namespace Collective_Development
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormMainMenu_Close(object sender, EventArgs e)
+        {
         }
     }
 }

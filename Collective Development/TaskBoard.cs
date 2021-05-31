@@ -9,7 +9,7 @@ using Tulpep.NotificationWindow;
 
 namespace Collective_Development
 {
-    class TaskBoard
+    public class TaskBoard
     {
         public Panel taskPanel;
         private Timer timer;
