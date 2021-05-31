@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Collective_Development.data;
+using System;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Collective_Development.forms
@@ -12,7 +9,9 @@ namespace Collective_Development.forms
     {
         public int defaultWorkTime;
         public bool soundSignal;
-
+        public Settings settings = new Settings();
+        public string login = "demo";
+         
         public formSettings()
         {
             InitializeComponent();
@@ -27,6 +26,14 @@ namespace Collective_Development.forms
         {
             LoadTheme();
         }
+
+        public void ShowSettings()
+        {
+            tbDefaulWorkTime.Text = settings.DefaultDelayTime.ToString();
+            chbxSound.Checked = settings.AddSound;
+            chbxKeyboardBlock.Checked = settings.BlockKeyBoard;
+        }
+
         public void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -44,8 +51,17 @@ namespace Collective_Development.forms
         {
             //заносить значения настроек в бд
             if (!Int32.TryParse(tbDefaulWorkTime.Text, out defaultWorkTime) || defaultWorkTime <= 0)
+            {
                 MessageBox.Show("Введите корректное значение");
-            else btnSaveChanges.Visible = false;
+            } else
+            {
+                settings.DefaultDelayTime = defaultWorkTime;
+                settings.AddSound = chbxSound.Checked;
+                settings.BlockKeyBoard = chbxKeyboardBlock.Checked;
+
+                Settings.Update(login, settings);
+                btnSaveChanges.Visible = false;
+            }
         }
 
         private void tbDefaulWorkTime_TextChanged(object sender, EventArgs e)

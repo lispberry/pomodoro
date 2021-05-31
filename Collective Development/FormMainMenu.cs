@@ -23,7 +23,7 @@ namespace Collective_Development
         private static forms.formInstruction formInstruction = new forms.formInstruction();
         private static forms.formMainPage formMainPage = new forms.formMainPage(formSettings);
 
-        private User _user;
+        private User user;
         
         public FormMainMenu()
         {    
@@ -53,10 +53,13 @@ namespace Collective_Development
 
         public void Show(User user)
         {
-            _user = user;
+            this.user = user;
             lblUserName.Text = user.Login;
             formUserData.AddUserData(user);
             formMainPage.AddTaskBoards(Card.GetCards(user.Login));
+            formSettings.login = user.Login;
+            formSettings.settings = Settings.GetSettings(user.Login);
+            formSettings.ShowSettings();
 
             Show();
         }
@@ -113,8 +116,10 @@ namespace Collective_Development
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Card.RemoveCards(_user.Login);
-            Card.AddCards(_user.Login, formMainPage.GetCards());
+            Card.RemoveCards(user.Login);
+
+            Settings.Update(user.Login, formSettings.settings);
+            Card.AddCards(user.Login, formMainPage.GetCards());
 
             Application.Exit();
         }
