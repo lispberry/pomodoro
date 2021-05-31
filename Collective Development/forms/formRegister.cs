@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,43 @@ namespace Collective_Development.forms
 {
     public partial class formRegister : Form
     {
+        public bool Exists(string login)
+        {
+            using (var conn = new NpgsqlConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                var cmd = new NpgsqlCommand
+                {
+                    Connection = conn,
+                    CommandText = "SELECT COUNT(*) from \"user\" WHERE login = @login"
+                };
+                cmd.Parameters.AddWithValue("login", login);
+
+                return ((Int64)cmd.ExecuteScalar()) == 1;
+            }
+        }
+
+        public bool Register(string login, string password)
+        {
+            if (Exists(login)) return false;
+
+            using (var conn = new NpgsqlConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                var cmd = new NpgsqlCommand
+                {
+                    Connection = conn,
+                    CommandText = "INSERT INTO \"user\"(login, password) VALUES(@login, @password)"
+                };
+                cmd.Parameters.AddWithValue("login", login);
+                cmd.Parameters.AddWithValue("password", password);
+
+                return cmd.ExecuteNonQuery() == 1;
+            }
+        }
+
         public formRegister()
         {
             InitializeComponent();
@@ -122,6 +160,7 @@ namespace Collective_Development.forms
 
                 //создание аккаунта
 
+                Register(tbUsername.Text, tbPassword.Text);
 
 
                 tbUsername.Text = "";
