@@ -36,6 +36,7 @@ namespace Collective_Development.forms
             // 
             // btnAddCard
             // 
+            this.btnAddCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCard.Location = new System.Drawing.Point(299, 381);
             this.btnAddCard.Name = "btnAddCard";
             this.btnAddCard.Size = new System.Drawing.Size(137, 27);
@@ -46,6 +47,7 @@ namespace Collective_Development.forms
             // 
             // btnDeleteCard
             // 
+            this.btnDeleteCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteCard.Location = new System.Drawing.Point(466, 381);
             this.btnDeleteCard.Name = "btnDeleteCard";
             this.btnDeleteCard.Size = new System.Drawing.Size(137, 27);
@@ -56,6 +58,7 @@ namespace Collective_Development.forms
             // 
             // btnSaveCards
             // 
+            this.btnSaveCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveCards.Location = new System.Drawing.Point(130, 381);
             this.btnSaveCards.Name = "btnSaveCards";
             this.btnSaveCards.Size = new System.Drawing.Size(137, 27);
