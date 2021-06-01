@@ -74,7 +74,8 @@ namespace Collective_Development.forms
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(418, 341);
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChanges.Location = new System.Drawing.Point(446, 381);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(167, 27);
             this.btnSaveChanges.TabIndex = 6;
@@ -86,7 +87,7 @@ namespace Collective_Development.forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 391);
+            this.ClientSize = new System.Drawing.Size(625, 411);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.tbDefaulWorkTime);
             this.Controls.Add(this.label2);

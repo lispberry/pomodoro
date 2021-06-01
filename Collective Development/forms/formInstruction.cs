@@ -8,19 +8,14 @@ using System.Windows.Forms;
 
 namespace Collective_Development.forms
 {
-    public partial class formSettings : Form
+    public partial class formInstruction : Form
     {
-        public int defaultWorkTime;
-        public formSettings()
+        public formInstruction()
         {
             InitializeComponent();
-            //брать значение всех настроек из бд
-            tbDefaulWorkTime.Text = "40";
-
-            defaultWorkTime = Convert.ToInt32(tbDefaulWorkTime.Text);
         }
-       
-        private void FormPage1_Load(object sender, EventArgs e)
+
+        private void formInstruction_Load(object sender, EventArgs e)
         {
             LoadTheme();
         }
@@ -36,13 +31,6 @@ namespace Collective_Development.forms
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
-            
-        }
-        private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            //заносить значения настроек в бд
-            if (!Int32.TryParse(tbDefaulWorkTime.Text, out defaultWorkTime) || defaultWorkTime <= 0)
-                MessageBox.Show("Введите корректное значение");
         }
     }
 }

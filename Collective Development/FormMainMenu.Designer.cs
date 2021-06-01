@@ -31,6 +31,7 @@ namespace Collective_Development
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnInstruction = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnUserData = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@ namespace Collective_Development
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnInstruction);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnStatistics);
             this.panelMenu.Controls.Add(this.btnUserData);
@@ -62,6 +64,26 @@ namespace Collective_Development
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(223, 493);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnInstruction
+            // 
+            this.btnInstruction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInstruction.FlatAppearance.BorderSize = 0;
+            this.btnInstruction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInstruction.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInstruction.Image = ((System.Drawing.Image)(resources.GetObject("btnInstruction.Image")));
+            this.btnInstruction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstruction.Location = new System.Drawing.Point(0, 302);
+            this.btnInstruction.Name = "btnInstruction";
+            this.btnInstruction.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnInstruction.Size = new System.Drawing.Size(223, 60);
+            this.btnInstruction.TabIndex = 8;
+            this.btnInstruction.Text = "  Справка";
+            this.btnInstruction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstruction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInstruction.UseVisualStyleBackColor = true;
+            this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
             // 
             // btnSettings
             // 
@@ -77,7 +99,7 @@ namespace Collective_Development
             this.btnSettings.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(223, 60);
             this.btnSettings.TabIndex = 7;
-            this.btnSettings.Text = "  Настройки приложения";
+            this.btnSettings.Text = "  Настройки";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -224,7 +246,7 @@ namespace Collective_Development
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(252, 17);
+            this.lblTitle.Location = new System.Drawing.Point(6, 14);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(82, 30);
             this.lblTitle.TabIndex = 0;
@@ -248,6 +270,7 @@ namespace Collective_Development
             this.Controls.Add(this.panelMenu);
             this.Name = "FormMainMenu";
             this.Text = "FormMainMenu";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
@@ -274,6 +297,7 @@ namespace Collective_Development
         private System.Windows.Forms.Button btnUserData;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnStatistics;
+        private System.Windows.Forms.Button btnInstruction;
     }
 }
 
