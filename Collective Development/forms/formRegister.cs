@@ -62,5 +62,15 @@ namespace Collective_Development.forms
             new formLogin().Show();
             this.Hide();
         }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

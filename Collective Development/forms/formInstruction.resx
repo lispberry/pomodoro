@@ -1,0 +1,124 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblRusDoc.Text" xml:space="preserve">
+    <value>        Приветствую тебя, уважаемый пользователь. Эта справка создана с целью помочь тебе разобраться с нашим 
+приложением. Желаю удачи!
+        Начнем с цели приложения. Наше приложение является приложением по тайм-менеджменту, которое 
+использует в своей основе технику «Метод помидора» или «Система 25 минут». Его суть заключается в том,
+что работа делится на задачи, на выполнение которых у вас есть строго определенное время, по истечении
+которого принудительно наступает перерыв.
+        Теперь перейдем к навигации. Изначально в главном окне находятся 2 карточки: «Работа» и «Перерыв». Эти
+карточки есть всегда и их нельзя удалить или переименовать. Вы можете записать в таймер другое время, если
+хотите. Записывать время необходимо в формате «мм:сс». Также в окне внизу имеются кнопки «Добавить 
+карточку» и «Удалить карточку». При нажатии на кнопку «Добавить карточку» появляется новая карточка,
+которую можно переименовать, изменить в ней время или удалить ее. Нажатие на кнопку «Удалить карточку» 
+удаляет выбранную карточку. Чтобы выбрать карточку для удаления, необходимо нажать на любое пустое место
+на карточке. Также на каждой карточке имеются кнопки «Старт» и «Стоп». Кнопка «Старт» запускает таймер 
+карточки, кнопка «Стоп» сбрасывает таймер на начало. Если таймер запущен, кнопка «Старт» меняется на 
+кнопку «Пауза». Кнопка «Пауза» приостанавливает действие таймера. При изменении времени карточки
+или ее названия, кнопки «Старт» и «Стоп» становятся неактивными и появляется кнопка «Сохранить». 
+Пока вы не нажмете на нее, кнопки «Старт» и «Стоп» не разблокируются. По окончании таймера карточки 
+«Перерыв» всплывет уведомление о том, что необходимо продолжить работу. Уведомление не пропадет,
+пока вы его не закроете. По окончании таймера любой другой карточки  автоматически запустится таймер
+карточки «Перерыв», а также всплывет уведомление о том, что пора начать перерыв. 
+        В окне «Данные о пользователе» в блоке «Персональные данные» необходимо ввести свои данные, 
+такие как «Имя» «Фамилия» и «Возраст». В блоке «Личные предпочтения» необходимо выбрать, какой 
+из указанных вариантов отдыха вы предпочитаете. Можно выбрать несколько значений. Эти данные нужны
+лишь для того, чтобы подобрать соответствующие рекомендации для вас по проведению перерыва. Мы
+не передаем их и не распространяем.
+        Окно «Настройки» предназначено для настройки некоторых параметров приложения. В графе
+«Длительность работы по умолчанию (мин)» вводится время,которое будет указываться в таймере всех
+карточек, создаваемых пользователем. Если вы поставите галочку в графе «Звуковой сигнал», уведомление
+об окончанииьтаймера будет сопровождаться звуковым сигналом.
+        В случае нахождения ошибок в работе приложения или возникновения вопросов пишите на почту 
+1example@gmail.com.
+</value>
+  </data>
+  <data name="lblEngDoc.Text" xml:space="preserve">
+    <value>        Greetings, dear user. This help has been created to help you understand our application. Good luck!
+        Let's start with the purpose of the application. Our application is a time management application that uses the
+“Tomato Method” or “25 Minutes System” technique. Its essence lies in the fact that work is divided into tasks, for
+which you have a strictly defined time, after which a break is forced.
+        Now let's move on to navigation. Initially, there are 2 cards in the main window: «Work» and «Break».
+These cards are always present and cannot be deleted or renamed. You can add other times to the timer if you
+like. Time must be recorded in «mm: ss» format. Also in the window below there are buttons "Add card" and
+"Delete card". When you click on the "Add card" button, a new card appears, which you can rename, change 
+the time in it or delete it. Clicking on the "Delete card" button deletes the selected card. To select a card for 
+deletion, you must click on any empty space on the card. Also on each card there are buttons "Start" and 
+"Stop". The “Start” button starts the card timer, the “Stop” button resets the timer to the beginning. If the 
+timer is running, the Start button changes to the «Pause» button. The «Pause» button pauses the timer. 
+When you change the time of the card or its name, the "Start" and "Stop" buttons become inactive and the
+"Save" button appears. Until you click on it, the «Start» and «Stop» buttons will not be unlocked. At the
+end of the Break card timer, a notification will pop up informing you that you need to continue working.
+The notification will not disappear until you close it. At the end of the timer of any other card, the timer
+for the Break card will automatically start, and a notification will pop up informing you that it is time to start
+the break.
+        In the window "User data" in the block "Personal data" you must enter your data, such as "First name" 
+"Last name" and "Age". In the block "Personal preferences" you need to choose which of the above options
+for rest you prefer. You can choose several preferences. This data is only needed in order to find the 
+appropriate recommendations for you on the break. We do not transmit or distribute them.
+        The "Settings" window is intended for setting some parameters of the application. In the column
+"Work time by default (min)" enter the time that will be indicated in the timer of all cards created by 
+the user. If you check the box "Audio signal", the notification about the end of the timer will be
+accompanied by a beep.
+        If you find errors in the application or if you have any questions, write to 1example@gmail.com.
+</value>
+  </data>
+</root>

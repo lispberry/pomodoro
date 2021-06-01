@@ -16,11 +16,11 @@ namespace Collective_Development
         private Button currentButton;
         private Random random;
         private int tempIndex;
-        private forms.formMainPage formMainPage = new forms.formMainPage();
-        private forms.formUserData formUserData = new forms.formUserData();
-        private forms.formStatistics formStatistics = new forms.formStatistics();
-        private forms.formSettings formSettings = new forms.formSettings();
-
+        private static forms.formUserData formUserData = new forms.formUserData();
+        private static forms.formStatistics formStatistics = new forms.formStatistics();
+        private static forms.formSettings formSettings = new forms.formSettings();
+        private static forms.formInstruction formInstruction = new forms.formInstruction();
+        private static forms.formMainPage formMainPage = new forms.formMainPage(formSettings);
         public FormMainMenu()
         {    
             InitializeComponent();
@@ -126,6 +126,18 @@ namespace Collective_Development
             ActivateButton(sender);
             formUserData.LoadTheme();
             OpenChildForm(formUserData, sender);
+        }
+
+        private void btnInstruction_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            formInstruction.LoadTheme();
+            OpenChildForm(formInstruction, sender);
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
