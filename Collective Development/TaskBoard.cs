@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Media;
 
 namespace Collective_Development
 {
@@ -15,6 +17,8 @@ namespace Collective_Development
         public int current_min, current_sec, default_min, default_sec;
         public bool readOnly;
         private forms.formMainPage parentForm;
+        public SoundPlayer player1;
+        public SoundPlayer player2;
         public TaskBoard(int m, int s, string name, bool readOnly, forms.formMainPage parentForm)
         {
             taskPanel = new Panel();
@@ -69,6 +73,11 @@ namespace Collective_Development
             default_sec = current_sec = s;
             this.readOnly = readOnly;
             this.parentForm = parentForm;
+
+            player1 = new SoundPlayer();
+            player1.Stream = Properties.Resources.sound1;
+            player2 = new SoundPlayer();
+            player2.Stream = Properties.Resources.sound2;
         }
         void tbTimerText_TextChanged(object sender, EventArgs e)
         {
@@ -121,7 +130,33 @@ namespace Collective_Development
             if (current_min == 0 && current_sec == 0)
             {
                 timer.Stop();
-
+                if (parentForm.formSettings.soundSignal)
+                {
+                    if (tbBoardName.Text != "Перерыв")
+                    {
+                        player1.Play();
+                        if (true)
+                        {
+                            Task.Factory.StartNew(async () =>
+                            {
+                                await Task.Delay(TimeSpan.FromSeconds(4));
+                                player1.Stop();
+                            });
+                        }
+                    }
+                    else
+                    {
+                        player2.Play();
+                        if (true)
+                        {
+                            Task.Factory.StartNew(async () =>
+                            {
+                                await Task.Delay(TimeSpan.FromSeconds(3.18));
+                                player2.Stop();
+                            });
+                        }
+                    }
+                }
                 if (tbBoardName.Text != "Перерыв")
                 {
                     MessageBox.Show("Время работы вышло. Начинается время отдыха");
