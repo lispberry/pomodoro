@@ -40,7 +40,7 @@ namespace Collective_Development.forms
             // 
             this.chbxKeyboardBlock.AutoSize = true;
             this.chbxKeyboardBlock.Location = new System.Drawing.Point(76, 119);
-            this.chbxKeyboardBlock.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chbxKeyboardBlock.Margin = new System.Windows.Forms.Padding(6);
             this.chbxKeyboardBlock.Name = "chbxKeyboardBlock";
             this.chbxKeyboardBlock.Size = new System.Drawing.Size(314, 36);
             this.chbxKeyboardBlock.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace Collective_Development.forms
             // 
             this.chbxSound.AutoSize = true;
             this.chbxSound.Location = new System.Drawing.Point(76, 173);
-            this.chbxSound.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chbxSound.Margin = new System.Windows.Forms.Padding(6);
             this.chbxSound.Name = "chbxSound";
             this.chbxSound.Size = new System.Drawing.Size(231, 36);
             this.chbxSound.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace Collective_Development.forms
             // tbDefaulWorkTime
             // 
             this.tbDefaulWorkTime.Location = new System.Drawing.Point(568, 64);
-            this.tbDefaulWorkTime.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbDefaulWorkTime.Margin = new System.Windows.Forms.Padding(6);
             this.tbDefaulWorkTime.MaxLength = 2;
             this.tbDefaulWorkTime.Name = "tbDefaulWorkTime";
             this.tbDefaulWorkTime.Size = new System.Drawing.Size(128, 39);
@@ -85,7 +85,7 @@ namespace Collective_Development.forms
             // 
             this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveChanges.Location = new System.Drawing.Point(828, 813);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(6);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(310, 58);
             this.btnSaveChanges.TabIndex = 6;
@@ -103,7 +103,7 @@ namespace Collective_Development.forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chbxSound);
             this.Controls.Add(this.chbxKeyboardBlock);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "formSettings";
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.FormPage1_Load);
