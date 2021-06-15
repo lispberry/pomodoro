@@ -10,11 +10,15 @@ namespace Collective_Development.forms
 {
     public partial class formSettings : Form
     {
+        public int defaultWorkTime;
         public formSettings()
         {
             InitializeComponent();
             //брать значение всех настроек из бд
             tbDefaulWorkTime.Text = "40";
+            btnSaveChanges.Visible = false;
+
+            defaultWorkTime = Convert.ToInt32(tbDefaulWorkTime.Text);
         }
        
         private void FormPage1_Load(object sender, EventArgs e)
@@ -38,6 +42,24 @@ namespace Collective_Development.forms
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             //заносить значения настроек в бд
+            if (!Int32.TryParse(tbDefaulWorkTime.Text, out defaultWorkTime) || defaultWorkTime <= 0)
+                MessageBox.Show("Введите корректное значение");
+            else btnSaveChanges.Visible = false;
+        }
+
+        private void tbDefaulWorkTime_TextChanged(object sender, EventArgs e)
+        {
+            btnSaveChanges.Visible = true;
+        }
+
+        private void chbxKeyboardBlock_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSaveChanges.Visible = true;
+        }
+
+        private void chbxSound_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSaveChanges.Visible = true;
         }
     }
 }

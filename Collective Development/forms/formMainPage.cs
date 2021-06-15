@@ -11,13 +11,14 @@ namespace Collective_Development.forms
     public partial class formMainPage : Form
     {
         private List<TaskBoard> taskBoards;
-        public formMainPage()
+        private forms.formSettings formSettings;
+        public formMainPage(forms.formSettings formSettings)
         {
             InitializeComponent();
             taskBoards = new List<TaskBoard>();
             taskBoards.Add(new TaskBoard(10, 0, "Перерыв", true, this));
             taskBoards.Add(new TaskBoard(40, 0, "Работа", true, this));
-
+            this.formSettings = formSettings;
             for (int i = 0; i < taskBoards.Count; i++)
             {
                 Controls.Add(taskBoards[i].taskPanel);
@@ -52,8 +53,7 @@ namespace Collective_Development.forms
             }
             else
             {
-                //40 - значение из настроек. Брать из бд
-                taskBoards.Add(new TaskBoard(40, 0, "Выполняемая задача", false, this));
+                taskBoards.Add(new TaskBoard(formSettings.defaultWorkTime, 0, "Выполняемая задача", false, this));
                 taskBoards[taskBoards.Count - 1].ClickOnPanel = ReleasePanels;
                 Controls.Add(taskBoards[taskBoards.Count - 1].taskPanel);
             }
