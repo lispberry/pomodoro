@@ -20,7 +20,7 @@ namespace Collective_Development
         private forms.formMainPage parentForm;
         public SoundPlayer player1;
         public SoundPlayer player2;
-        public PopupNotifier popup = null;
+
         public TaskBoard(int m, int s, string name, bool readOnly, forms.formMainPage parentForm)
         {
             taskPanel = new Panel();
@@ -46,10 +46,9 @@ namespace Collective_Development
             tbTimerText.BorderStyle = BorderStyle.None;
             tbTimerText.Size = new System.Drawing.Size(82, 31);
             tbTimerText.Location = new System.Drawing.Point(255, 14);
-            tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged); 
+            tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged);
             tbTimerText.KeyPress += new KeyPressEventHandler(tbTimerText_KeyPress);
-            tbTimerText.MaxLength = 5; 
-
+            tbTimerText.MaxLength = 5;
 
             btnStart = new Button();
             btnStart.Text = "Пуск";
@@ -84,18 +83,15 @@ namespace Collective_Development
             player2 = new SoundPlayer();
             player2.Stream = Properties.Resources.sound2;
         }
+
         void tbTimerText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(Char.IsDigit(e.KeyChar)))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    e.Handled = true;
-                }
-            }
+            if (Char.IsNumber(e.KeyChar) | (e.KeyChar == Convert.ToChar(":")) | e.KeyChar == '\b') return;
+            else
+                e.Handled = true;
         }
         void tbTimerText_TextChanged(object sender, EventArgs e)
-        {           
+        {
             if (tbTimerText.Focused)
             {
                 btnStart.Enabled = btnStop.Enabled = false;
@@ -177,13 +173,14 @@ namespace Collective_Development
                 {
                     //MessageBox.Show("Время работы вышло. Начинается время отдыха");
                     parentForm.StartBreak();
-                    
-                    popup = new PopupNotifier();
 
-                    popup.HeaderColor = ThemeColor.SecondaryColor;
+                    PopupNotifier popup = new PopupNotifier();
+
                     popup.HeaderHeight = 1;
                     popup.ShowGrip = false;
+                    popup.HeaderColor = ThemeColor.SecondaryColor;
                     popup.BodyColor = ThemeColor.PrimaryColor;
+                    popup.Delay = 10000;
 
                     popup.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
                     popup.TitleColor = Color.Gainsboro;
@@ -197,6 +194,27 @@ namespace Collective_Development
 
                     timer.Stop();
                 }
+                else
+                {
+                    PopupNotifier popupEnd = new PopupNotifier();
+                 
+                    popupEnd.HeaderHeight = 1;
+                    popupEnd.ShowGrip = false;
+                    popupEnd.HeaderColor = ThemeColor.SecondaryColor;
+                    popupEnd.BodyColor = ThemeColor.PrimaryColor;
+                    popupEnd.Delay = 10000;
+
+                    popupEnd.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+                    popupEnd.TitleColor = Color.Gainsboro;
+                    popupEnd.TitleText = "ПОРА ЗА РАБОТУ!";
+
+                    popupEnd.ContentFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+                    popupEnd.ContentColor = Color.Gainsboro;
+                    popupEnd.ContentText = "Совет: сконцентрируйтесь";
+
+                    popupEnd.Popup();
+                }
+
                 tbTimerText.Text = Convert.ToString(default_min) + ":" + Convert.ToString(default_sec);
                 current_min = default_min;
                 current_sec = default_sec;
