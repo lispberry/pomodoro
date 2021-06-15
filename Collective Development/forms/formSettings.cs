@@ -11,6 +11,7 @@ namespace Collective_Development.forms
     public partial class formSettings : Form
     {
         public int defaultWorkTime;
+        public bool soundSignal;
         public formSettings()
         {
             InitializeComponent();
@@ -36,8 +37,7 @@ namespace Collective_Development.forms
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-            }
-            
+            }           
         }
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
@@ -60,6 +60,18 @@ namespace Collective_Development.forms
         private void chbxSound_CheckedChanged(object sender, EventArgs e)
         {
             btnSaveChanges.Visible = true;
+            soundSignal = chbxSound.Checked;
+        }
+
+        private void tbDefaulWorkTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

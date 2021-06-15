@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Media;
+using Tulpep.NotificationWindow;
 
 namespace Collective_Development
 {
@@ -19,6 +20,7 @@ namespace Collective_Development
         private forms.formMainPage parentForm;
         public SoundPlayer player1;
         public SoundPlayer player2;
+        public PopupNotifier popup = null;
         public TaskBoard(int m, int s, string name, bool readOnly, forms.formMainPage parentForm)
         {
             taskPanel = new Panel();
@@ -44,7 +46,10 @@ namespace Collective_Development
             tbTimerText.BorderStyle = BorderStyle.None;
             tbTimerText.Size = new System.Drawing.Size(82, 31);
             tbTimerText.Location = new System.Drawing.Point(255, 14);
-            tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged);
+            tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged); 
+            tbTimerText.KeyPress += new KeyPressEventHandler(tbTimerText_KeyPress);
+            tbTimerText.MaxLength = 5; 
+
 
             btnStart = new Button();
             btnStart.Text = "Пуск";
@@ -79,8 +84,18 @@ namespace Collective_Development
             player2 = new SoundPlayer();
             player2.Stream = Properties.Resources.sound2;
         }
-        void tbTimerText_TextChanged(object sender, EventArgs e)
+        void tbTimerText_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!(Char.IsDigit(e.KeyChar)))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        void tbTimerText_TextChanged(object sender, EventArgs e)
+        {           
             if (tbTimerText.Focused)
             {
                 btnStart.Enabled = btnStop.Enabled = false;
@@ -119,6 +134,7 @@ namespace Collective_Development
             //tbTimerText.ReadOnly = false;
             tbTimerText.Enabled = true;
         }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             current_sec = current_sec - 1;
@@ -130,7 +146,7 @@ namespace Collective_Development
             if (current_min == 0 && current_sec == 0)
             {
                 timer.Stop();
-                if (true)
+                if (parentForm.formSettings.soundSignal)
                 {
                     if (tbBoardName.Text != "Перерыв")
                     {
@@ -159,8 +175,27 @@ namespace Collective_Development
                 }
                 if (tbBoardName.Text != "Перерыв")
                 {
-                    MessageBox.Show("Время работы вышло. Начинается время отдыха");
-                    parentForm.StartBreak();        
+                    //MessageBox.Show("Время работы вышло. Начинается время отдыха");
+                    parentForm.StartBreak();
+                    
+                    popup = new PopupNotifier();
+
+                    popup.HeaderColor = ThemeColor.SecondaryColor;
+                    popup.HeaderHeight = 1;
+                    popup.ShowGrip = false;
+                    popup.BodyColor = ThemeColor.PrimaryColor;
+
+                    popup.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+                    popup.TitleColor = Color.Gainsboro;
+                    popup.TitleText = "ПОРА ОТДОХНУТЬ!";
+
+                    popup.ContentFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+                    popup.ContentColor = Color.Gainsboro;
+                    popup.ContentText = "Совет: попейте воды, встаньте со стула и разомнитесь";
+
+                    popup.Popup();
+
+                    timer.Stop();
                 }
                 tbTimerText.Text = Convert.ToString(default_min) + ":" + Convert.ToString(default_sec);
                 current_min = default_min;

@@ -11,7 +11,7 @@ namespace Collective_Development.forms
     public partial class formMainPage : Form
     {
         private List<TaskBoard> taskBoards;
-        private forms.formSettings formSettings;
+        public forms.formSettings formSettings;
         public formMainPage(forms.formSettings formSettings)
         {
             InitializeComponent();
@@ -100,10 +100,11 @@ namespace Collective_Development.forms
                 int new_min, new_sec;
                 if (taskBoards[i].tbTimerText.Text.Contains(':') &&
                     Int32.TryParse(taskBoards[i].tbTimerText.Text.Substring(0, taskBoards[i].tbTimerText.Text.IndexOf(':')), out new_min) &&
-                    Int32.TryParse(taskBoards[i].tbTimerText.Text.Substring(taskBoards[i].tbTimerText.Text.IndexOf(':') + 1, taskBoards[i].tbTimerText.Text.Length - taskBoards[i].tbTimerText.Text.IndexOf(':') - 1), out new_sec))
+                    Int32.TryParse(taskBoards[i].tbTimerText.Text.Substring(taskBoards[i].tbTimerText.Text.IndexOf(':') + 1, taskBoards[i].tbTimerText.Text.Length - taskBoards[i].tbTimerText.Text.IndexOf(':') - 1), out new_sec) &&
+                    new_sec <= 60)
                 {
-                    taskBoards[i].current_min = new_min;
-                    taskBoards[i].current_sec = new_sec;
+                    taskBoards[i].current_min =taskBoards[i].default_min= new_min;
+                    taskBoards[i].current_sec =taskBoards[i].default_sec= new_sec;
                 }
                 else
                 {
