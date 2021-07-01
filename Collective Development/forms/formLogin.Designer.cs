@@ -29,6 +29,7 @@ namespace Collective_Development.forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
             this.lblCreateAccount = new System.Windows.Forms.Label();
             this.lblNoAccount = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -38,6 +39,8 @@ namespace Collective_Development.forms
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblAuth = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCreateAccount
@@ -47,7 +50,7 @@ namespace Collective_Development.forms
             this.lblCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.lblCreateAccount.Location = new System.Drawing.Point(76, 363);
             this.lblCreateAccount.Name = "lblCreateAccount";
-            this.lblCreateAccount.Size = new System.Drawing.Size(134, 17);
+            this.lblCreateAccount.Size = new System.Drawing.Size(268, 36);
             this.lblCreateAccount.TabIndex = 21;
             this.lblCreateAccount.Text = "Создать аккаунт";
             this.lblCreateAccount.Click += new System.EventHandler(this.lblCreateAccount_Click);
@@ -57,7 +60,7 @@ namespace Collective_Development.forms
             this.lblNoAccount.AutoSize = true;
             this.lblNoAccount.Location = new System.Drawing.Point(48, 337);
             this.lblNoAccount.Name = "lblNoAccount";
-            this.lblNoAccount.Size = new System.Drawing.Size(196, 17);
+            this.lblNoAccount.Size = new System.Drawing.Size(390, 36);
             this.lblNoAccount.TabIndex = 20;
             this.lblNoAccount.Text = "Еще не зарегистрирован";
             // 
@@ -83,7 +86,7 @@ namespace Collective_Development.forms
             this.checkbxShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkbxShowPass.Location = new System.Drawing.Point(101, 222);
             this.checkbxShowPass.Name = "checkbxShowPass";
-            this.checkbxShowPass.Size = new System.Drawing.Size(152, 21);
+            this.checkbxShowPass.Size = new System.Drawing.Size(300, 40);
             this.checkbxShowPass.TabIndex = 18;
             this.checkbxShowPass.Text = "Показать пароль";
             this.checkbxShowPass.UseVisualStyleBackColor = true;
@@ -106,7 +109,7 @@ namespace Collective_Development.forms
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(36, 165);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(63, 17);
+            this.lblPassword.Size = new System.Drawing.Size(128, 36);
             this.lblPassword.TabIndex = 14;
             this.lblPassword.Text = "Пароль";
             // 
@@ -126,7 +129,7 @@ namespace Collective_Development.forms
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(36, 104);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(52, 17);
+            this.lblUsername.Size = new System.Drawing.Size(105, 36);
             this.lblUsername.TabIndex = 12;
             this.lblUsername.Text = "Логин";
             // 
@@ -137,16 +140,50 @@ namespace Collective_Development.forms
             this.lblAuth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.lblAuth.Location = new System.Drawing.Point(64, 59);
             this.lblAuth.Name = "lblAuth";
-            this.lblAuth.Size = new System.Drawing.Size(158, 28);
+            this.lblAuth.Size = new System.Drawing.Size(314, 56);
             this.lblAuth.TabIndex = 11;
             this.lblAuth.Text = "Авторизация";
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(238, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(46, 53);
+            this.btnClose.TabIndex = 22;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(195, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(6);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(46, 53);
+            this.btnMinimize.TabIndex = 23;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
             // formLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(289, 441);
+            this.Controls.Add(this.btnMinimize);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblCreateAccount);
             this.Controls.Add(this.lblNoAccount);
             this.Controls.Add(this.btnLogin);
@@ -178,5 +215,7 @@ namespace Collective_Development.forms
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblAuth;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnMinimize;
     }
 }
