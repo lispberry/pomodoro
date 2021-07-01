@@ -69,14 +69,11 @@ namespace Collective_Development.forms
             if (tbPassword.Text == tbConfirmPassword.Text)
             {
                 //создание аккаунта
-
                 tbUsername.Text = "";
                 tbPassword.Text = "";
                 tbConfirmPassword.Text = "";
-
                 MessageBox.Show("Ваш аккаунт был успешно зарегистрован", "Регистрация прошла успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             else
             {
                 MessageBox.Show("Пароли не совпадают, пожалуйста, попробуйте еще раз", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
