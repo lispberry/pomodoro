@@ -31,6 +31,7 @@ namespace Collective_Development
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnInstruction = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnUserData = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@ namespace Collective_Development
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnInstruction);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnStatistics);
             this.panelMenu.Controls.Add(this.btnUserData);
@@ -63,6 +65,26 @@ namespace Collective_Development
             this.panelMenu.Size = new System.Drawing.Size(223, 493);
             this.panelMenu.TabIndex = 0;
             // 
+            // btnInstruction
+            // 
+            this.btnInstruction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInstruction.FlatAppearance.BorderSize = 0;
+            this.btnInstruction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInstruction.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInstruction.Image = ((System.Drawing.Image)(resources.GetObject("btnInstruction.Image")));
+            this.btnInstruction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstruction.Location = new System.Drawing.Point(0, 302);
+            this.btnInstruction.Name = "btnInstruction";
+            this.btnInstruction.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnInstruction.Size = new System.Drawing.Size(223, 60);
+            this.btnInstruction.TabIndex = 8;
+            this.btnInstruction.Text = "  Справка";
+            this.btnInstruction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstruction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInstruction.UseVisualStyleBackColor = true;
+            this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
+            // 
             // btnSettings
             // 
             this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
@@ -70,14 +92,14 @@ namespace Collective_Development
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSettings.Image = global::Collective_Development.Properties.Resources.settings;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.Location = new System.Drawing.Point(0, 242);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSettings.Size = new System.Drawing.Size(223, 60);
             this.btnSettings.TabIndex = 7;
-            this.btnSettings.Text = "  Настройки приложения";
+            this.btnSettings.Text = "  Настройки";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -90,7 +112,7 @@ namespace Collective_Development
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnStatistics.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnStatistics.Image = global::Collective_Development.Properties.Resources.diagram;
+            this.btnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistics.Image")));
             this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStatistics.Location = new System.Drawing.Point(0, 182);
             this.btnStatistics.Name = "btnStatistics";
@@ -110,7 +132,7 @@ namespace Collective_Development
             this.btnUserData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUserData.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUserData.Image = global::Collective_Development.Properties.Resources.Windows_Messenger_icon;
+            this.btnUserData.Image = ((System.Drawing.Image)(resources.GetObject("btnUserData.Image")));
             this.btnUserData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUserData.Location = new System.Drawing.Point(0, 122);
             this.btnUserData.Name = "btnUserData";
@@ -167,7 +189,7 @@ namespace Collective_Development
             // 
             // pictureBoxUser
             // 
-            this.pictureBoxUser.Image = global::Collective_Development.Properties.Resources.user_picture;
+            this.pictureBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUser.Image")));
             this.pictureBoxUser.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(63, 63);
@@ -195,7 +217,7 @@ namespace Collective_Development
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::Collective_Development.Properties.Resources.minimize_icon1;
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
             this.btnMinimize.Location = new System.Drawing.Point(585, 0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(25, 25);
@@ -211,7 +233,7 @@ namespace Collective_Development
             this.btnClose.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(616, 0);
+            this.btnClose.Location = new System.Drawing.Point(617, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 25);
             this.btnClose.TabIndex = 2;
@@ -224,7 +246,7 @@ namespace Collective_Development
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(252, 17);
+            this.lblTitle.Location = new System.Drawing.Point(6, 14);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(82, 30);
             this.lblTitle.TabIndex = 0;
@@ -248,6 +270,8 @@ namespace Collective_Development
             this.Controls.Add(this.panelMenu);
             this.Name = "FormMainMenu";
             this.Text = "FormMainMenu";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
+            this.Closing += this.FormMainMenu_Close;
             this.panelMenu.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
@@ -274,6 +298,7 @@ namespace Collective_Development
         private System.Windows.Forms.Button btnUserData;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnStatistics;
+        private System.Windows.Forms.Button btnInstruction;
     }
 }
 

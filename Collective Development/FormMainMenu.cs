@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Collective_Development.data;
 
 namespace Collective_Development
 {
@@ -16,11 +17,14 @@ namespace Collective_Development
         private Button currentButton;
         private Random random;
         private int tempIndex;
-        private forms.formMainPage formMainPage = new forms.formMainPage();
-        private forms.formUserData formUserData = new forms.formUserData();
-        private forms.formStatistics formStatistics = new forms.formStatistics();
-        private forms.formSettings formSettings = new forms.formSettings();
+        private static forms.formUserData formUserData = new forms.formUserData();
+        private static forms.formStatistics formStatistics = new forms.formStatistics();
+        private static forms.formSettings formSettings = new forms.formSettings();
+        private static forms.formInstruction formInstruction = new forms.formInstruction();
+        private static forms.formMainPage formMainPage = new forms.formMainPage(formSettings);
 
+        private User user;
+        
         public FormMainMenu()
         {    
             InitializeComponent();
@@ -46,6 +50,20 @@ namespace Collective_Development
             string color = ThemeColor.ColorList[index];
             return ColorTranslator.FromHtml(color);
         }
+
+        public void Show(User user)
+        {
+            this.user = user;
+            lblUserName.Text = user.Login;
+            formUserData.AddUserData(user);
+            formMainPage.AddTaskBoards(Card.GetCards(user.Login));
+            formSettings.login = user.Login;
+            formSettings.settings = Settings.GetSettings(user.Login);
+            formSettings.ShowSettings();
+
+            Show();
+        }
+
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -90,6 +108,7 @@ namespace Collective_Development
             childForm.Show();
             lblTitle.Text = childForm.Text;
         }
+
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -97,6 +116,11 @@ namespace Collective_Development
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
+            Card.RemoveCards(user.Login);
+
+            Settings.Update(user.Login, formSettings.settings);
+            Card.AddCards(user.Login, formMainPage.GetCards());
+
             Application.Exit();
         }
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -126,6 +150,22 @@ namespace Collective_Development
             ActivateButton(sender);
             formUserData.LoadTheme();
             OpenChildForm(formUserData, sender);
+        }
+
+        private void btnInstruction_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            formInstruction.LoadTheme();
+            OpenChildForm(formInstruction, sender);
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormMainMenu_Close(object sender, EventArgs e)
+        {
         }
     }
 }
