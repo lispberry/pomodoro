@@ -18,29 +18,29 @@ namespace Collective_Development.forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            int kol_num = 0;
-            int kol_let_up = 0;
-            int kol_let_low = 0;
-            bool kol_rus_let = false;
-            int kol_simb = 0;
+            int kolNum = 0;
+            int kolLetUp = 0;
+            int kolLetLow = 0;
+            bool kolRusLet = false;
+            int kolSymbol = 0;
 
             for (int i = 0; i < tbPassword.Text.Length; i++)
             {
-                if (!kol_rus_let)
+                if (!kolRusLet)
                 {
                     char ch = tbPassword.Text[i];
                     if (Regex.Match(tbPassword.Text, "[а-яА-ЯёЁ]").Value.Length > 0)
-                        kol_rus_let = true;
+                        kolRusLet = true;
                     else
                         if (Char.IsNumber(ch))
-                        kol_num++;
+                        kolNum++;
                     else if (Char.IsLetter(ch))
                     {
                         if (Char.IsUpper(ch))
-                            kol_let_up++;
-                        else kol_let_low++;
+                            kolLetUp++;
+                        else kolLetLow++;
                     }
-                    else kol_simb++;
+                    else kolSymbol++;
                 }
             }
             if (tbUsername.Text == "" && tbPassword.Text == "" && tbConfirmPassword.Text == "")
@@ -48,7 +48,7 @@ namespace Collective_Development.forms
                 MessageBox.Show("Логин и пароль не должны быть пустыми", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                if (kol_rus_let)
+                if (kolRusLet)
             {
                 MessageBox.Show("В пароле не должно быть русских букв", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -58,12 +58,12 @@ namespace Collective_Development.forms
                 MessageBox.Show("В пароле должно быть не менее 8 символов", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                        if (kol_num < 1 | kol_simb < 1 | kol_let_up < 1 | kol_let_low < 1)
+                        if (kolNum < 1 | kolSymbol < 1 | kolLetUp < 1 | kolLetLow < 1)
             {
-                if (kol_num < 1) MessageBox.Show("Пароль должен содержать как минимум 1 цифру", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (kol_simb < 1) MessageBox.Show("Пароль должен содержать как минимум 1спец.символ", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (kol_let_low < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ нижнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (kol_let_up < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ верхнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (kolNum < 1) MessageBox.Show("Пароль должен содержать как минимум 1 цифру", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (kolSymbol < 1) MessageBox.Show("Пароль должен содержать как минимум 1спец.символ", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (kolLetLow < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ нижнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (kolLetUp < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ верхнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             if (tbPassword.Text == tbConfirmPassword.Text)
