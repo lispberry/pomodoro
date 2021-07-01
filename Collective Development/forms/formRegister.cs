@@ -34,53 +34,55 @@ namespace Collective_Development.forms
                     else
                         if (Char.IsNumber(ch))
                         kolNum++;
-                    else if (Char.IsLetter(ch))
-                    {
-                        if (Char.IsUpper(ch))
-                            kolLetUp++;
-                        else kolLetLow++;
-                    }
-                    else kolSymbol++;
+                        else 
+                            if (Char.IsLetter(ch))
+                            {
+                                if (Char.IsUpper(ch))
+                                    kolLetUp++;
+                                else kolLetLow++;
+                            }
+                            else kolSymbol++;
                 }
             }
+
             if (tbUsername.Text == "" && tbPassword.Text == "" && tbConfirmPassword.Text == "")
             {
                 MessageBox.Show("Логин и пароль не должны быть пустыми", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 if (kolRusLet)
-            {
-                MessageBox.Show("В пароле не должно быть русских букв", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
+                {
+                    MessageBox.Show("В пароле не должно быть русских букв", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
                     if (tbPassword.Text.Length < 8)
-            {
-                MessageBox.Show("В пароле должно быть не менее 8 символов", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
+                    {
+                        MessageBox.Show("В пароле должно быть не менее 8 символов", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
                         if (kolNum < 1 | kolSymbol < 1 | kolLetUp < 1 | kolLetLow < 1)
-            {
-                if (kolNum < 1) MessageBox.Show("Пароль должен содержать как минимум 1 цифру", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (kolSymbol < 1) MessageBox.Show("Пароль должен содержать как минимум 1спец.символ", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (kolLetLow < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ нижнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (kolLetUp < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ верхнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            if (tbPassword.Text == tbConfirmPassword.Text)
-            {
-                //создание аккаунта
-                tbUsername.Text = "";
-                tbPassword.Text = "";
-                tbConfirmPassword.Text = "";
-                MessageBox.Show("Ваш аккаунт был успешно зарегистрован", "Регистрация прошла успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Пароли не совпадают, пожалуйста, попробуйте еще раз", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tbPassword.Text = "";
-                tbConfirmPassword.Text = "";
-                tbPassword.Focus();
-            }
+                        {
+                            if (kolNum < 1) MessageBox.Show("Пароль должен содержать как минимум 1 цифру", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (kolSymbol < 1) MessageBox.Show("Пароль должен содержать как минимум 1спец.символ", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (kolLetLow < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ нижнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (kolLetUp < 1) MessageBox.Show("Пароль должен содержать как минимум 1 символ верхнего регистра", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                            if (tbPassword.Text == tbConfirmPassword.Text)
+                            {
+                                //создание аккаунта
+                                tbUsername.Text = "";
+                                tbPassword.Text = "";
+                                tbConfirmPassword.Text = "";
+                                MessageBox.Show("Ваш аккаунт был успешно зарегистрован", "Регистрация прошла успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Пароли не совпадают, пожалуйста, попробуйте еще раз", "Не удалось зарегистрироваться", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                tbPassword.Text = "";
+                                tbConfirmPassword.Text = "";
+                                tbPassword.Focus();
+                            }
         }
         private void checkbxShowPass_CheckedChanged(object sender, EventArgs e)
         {
