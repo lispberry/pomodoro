@@ -9,7 +9,7 @@ using Tulpep.NotificationWindow;
 
 namespace Collective_Development
 {
-    class TaskBoard
+    public class TaskBoard
     {
         public Panel taskPanel;
         private Timer timer;
@@ -122,7 +122,8 @@ namespace Collective_Development
             tbTimerText.Enabled = true;
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        //private void timer_Tick(object sender, EventArgs e)
+        public void timer_Tick(object sender, EventArgs e)
         {
             current_sec = current_sec - 1;
             if (current_sec == -1)
