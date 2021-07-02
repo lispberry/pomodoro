@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Collective_Development.data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,16 @@ namespace Collective_Development.forms
 {
     public partial class formUserData : Form
     {
+        public User user;
+
+        public void AddUserData(User user)
+        {
+            tbName.Text = user.Name;
+            tbSurname.Text = user.Surname;
+            tbAge.Text = user.Age.ToString();
+            this.user = user;
+        }
+
         public formUserData()
         {
             InitializeComponent();
@@ -89,7 +100,12 @@ namespace Collective_Development.forms
 
         private void btnSaveData_Click(object sender, EventArgs e)
         {
-            //сохранить изменения в бд
+            user.Name = tbName.Text;
+            user.Surname = tbSurname.Text;
+            user.Age = Int32.Parse(tbAge.Text);
+
+            user.Update();
+
             btnSaveData.Visible = false;
         }
     }

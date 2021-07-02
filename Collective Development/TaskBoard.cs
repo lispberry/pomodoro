@@ -47,6 +47,8 @@ namespace Collective_Development
             tbTimerText.Size = new System.Drawing.Size(82, 31);
             tbTimerText.Location = new System.Drawing.Point(255, 14);
             tbTimerText.TextChanged += new EventHandler(tbTimerText_TextChanged);
+            tbTimerText.KeyPress += new KeyPressEventHandler(tbTimerText_KeyPress);
+            tbTimerText.MaxLength = 5;
 
             btnStart = new Button();
             btnStart.Text = "Пуск";
@@ -80,6 +82,13 @@ namespace Collective_Development
             player1.Stream = Properties.Resources.sound1;
             player2 = new SoundPlayer();
             player2.Stream = Properties.Resources.sound2;
+        }
+
+        void tbTimerText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) | (e.KeyChar == Convert.ToChar(":")) | e.KeyChar == '\b') return;
+            else
+                e.Handled = true;
         }
         void tbTimerText_TextChanged(object sender, EventArgs e)
         {
@@ -122,8 +131,7 @@ namespace Collective_Development
             tbTimerText.Enabled = true;
         }
 
-        //private void timer_Tick(object sender, EventArgs e)
-        public void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
             current_sec = current_sec - 1;
             if (current_sec == -1)

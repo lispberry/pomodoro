@@ -271,6 +271,7 @@ namespace Collective_Development
             this.Name = "FormMainMenu";
             this.Text = "FormMainMenu";
             this.Load += new System.EventHandler(this.FormMainMenu_Load);
+            this.Closing += this.FormMainMenu_Close;
             this.panelMenu.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();

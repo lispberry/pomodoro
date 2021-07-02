@@ -10,22 +10,43 @@ namespace Collective_Development.forms
 {
     public partial class formMainPage : Form
     {
-        private List<TaskBoard> taskBoards;
+        private List<TaskBoard> taskBoards = new List<TaskBoard>();
         public forms.formSettings formSettings;
         public formMainPage(forms.formSettings formSettings)
         {
             InitializeComponent();
-            taskBoards = new List<TaskBoard>();
-            taskBoards.Add(new TaskBoard(10, 0, "Перерыв", true, this));
-            taskBoards.Add(new TaskBoard(40, 0, "Работа", true, this));
             this.formSettings = formSettings;
-            for (int i = 0; i < taskBoards.Count; i++)
-            {
-                Controls.Add(taskBoards[i].taskPanel);
-                taskBoards[i].ClickOnPanel = ReleasePanels;
-            }
             btnSaveCards.Visible = false;
         }
+
+        public IEnumerable<data.Card> GetCards()
+        {
+            foreach (var task in taskBoards)
+            {
+                yield return new data.Card()
+                {
+                    Min = task.current_min,
+                    Sec = task.current_sec,
+                    Name = task.tbBoardName.Text
+                };
+            }
+        }
+
+        public void AddTaskBoards(IEnumerable<data.Card> cards)
+        {
+            taskBoards = new List<TaskBoard>();
+
+            foreach (var card in cards)
+            {
+                taskBoards.Add(new TaskBoard(card.Min, card.Sec, card.Name, true, this));
+            }
+            foreach (var taskBoard in  taskBoards)
+            {
+                Controls.Add(taskBoard.taskPanel);
+                taskBoard.ClickOnPanel = ReleasePanels;
+            }
+        }
+
         private void formMainPage_Load(object sender, EventArgs e)
         {
             LoadTheme();
