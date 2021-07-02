@@ -1,6 +1,7 @@
 ﻿using Collective_Development.data;
 using System;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Collective_Development.forms
